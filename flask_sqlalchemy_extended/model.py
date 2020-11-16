@@ -6,4 +6,5 @@ def query():
 
 
 class Model(Model):
+    __tablename__: str
     query: query
