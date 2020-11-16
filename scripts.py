@@ -17,6 +17,12 @@ scripts = {
     'build': 'python setup.py sdist bdist_wheel',
     'publish': 'twine upload dist/*',
     'clear_build': clear_build,
+    'cbpc': [
+        clear_build,
+        'python setup.py sdist bdist_wheel',
+        'twine upload dist/*',
+        clear_build,
+    ],
 }
 
 commands = []
@@ -24,13 +30,20 @@ for arg in args:
     if scripts.keys().__contains__(arg):
         commands.append(scripts[arg])
 
-for command in commands:
-    if isinstance(command, list):
-        [os.system(c) for c in command]
-    elif isinstance(command, str):
+
+def run_command(command):
+    if isinstance(command, str):
         os.system(command)
     elif callable(command):
         command()
+
+
+for command in commands:
+    if isinstance(command, list):
+        [run_command(c) for c in command]
+    else:
+        run_command(command)
+
 
 if (len(args) == 0):
     print(list(scripts.keys()))
