@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="flask-sqlalchemy-extended",
-    version="0.0.8",
+    version="0.0.9",
     author="luanws",
     author_email="luan.w.silveira@gmail.com",
     description="SQLAlchemy autocomplete",
