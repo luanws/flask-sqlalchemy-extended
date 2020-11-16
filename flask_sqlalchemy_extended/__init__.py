@@ -1,4 +1,12 @@
-from flask_sqlalchemy import SQLAlchemy as _SQLAlchemy
+from typing import Type
+from flask_sqlalchemy import SQLAlchemy
+from .model import Model
 
-class SQLAlchemy(_SQLAlchemy):
+
+def Column(primary_key: bool):
     pass
+
+
+class SQLAlchemy(SQLAlchemy):
+    Model: Type[Model]
+    Column: Column
