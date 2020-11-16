@@ -5,6 +5,7 @@ args = sys.argv[1:]
 
 scripts = [
     ('build', 'python setup.py sdist bdist_wheel'),
+    ('publish', 'twine upload dist/*'),
 ]
 
 commands = list(map(
