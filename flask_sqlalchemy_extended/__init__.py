@@ -6,15 +6,11 @@ from .model import Model
 
 def Column(
     sqltype: TypeEngine,
-    primary_key: bool = False,
+    primary_key: bool = None,
+    nullable: bool = None,
 ): pass
-
-
-def create_all(bind='__all__', app=None):
-    pass
 
 
 class SQLAlchemy(SQLAlchemy):
     Model: Type[Model]
     Column: Column
-    create_all: create_all
