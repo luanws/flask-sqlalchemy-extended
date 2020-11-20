@@ -1,7 +1,7 @@
 from typing import Any, Type
 from flask_sqlalchemy import SQLAlchemy
 from .model import Model
-from sqlalchemy_extended.orm.scoping import scoped_session
+from flask_sqlalchemy_extended.sqlalchemy.orm.scoping import scoped_session
 
 
 def Column(
