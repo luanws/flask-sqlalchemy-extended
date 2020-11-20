@@ -1,6 +1,7 @@
 from typing import Any, Type
 from flask_sqlalchemy import SQLAlchemy
 from .model import Model
+from sqlalchemy_extended.orm.scoping import scoped_session
 
 
 def Column(
@@ -54,3 +55,4 @@ class SQLAlchemy(SQLAlchemy):
     Model: Type[Model]
     Column: Column
     relationship: relationship
+    session: scoped_session
