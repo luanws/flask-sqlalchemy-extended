@@ -1,6 +1,7 @@
 import sys
 import os
 import shutil
+import setuptools
 from contextlib import suppress
 
 args = sys.argv[1:]
@@ -13,6 +14,10 @@ def clear_build():
             shutil.rmtree(folder)
 
 
+def show_packages():
+    print(setuptools.find_packages())
+
+
 scripts = {
     'build': 'python setup.py sdist bdist_wheel',
     'publish': 'twine upload dist/*',
@@ -23,6 +28,7 @@ scripts = {
         'twine upload dist/*',
         clear_build,
     ],
+    'show_packages': show_packages,
 }
 
 commands = []
